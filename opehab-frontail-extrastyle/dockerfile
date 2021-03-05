@@ -1,0 +1,47 @@
+FROM node:10.16.0-alpine
+
+ARG FRONTAIL_VERSION
+
+LABEL description="openHAB log viewer"
+
+RUN apk add --no-cache wget
+
+RUN npm install frontail@$FRONTAIL_VERSION -g --production --unsafe-perm
+
+RUN FRONTAIL_BASE="/usr/local/lib/node_modules/frontail" \
+    && wget     -O ${FRONTAIL_BASE}/preset/openhab.json \
+    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-preset.json \
+    && wget     -O ${FRONTAIL_BASE}/preset/openhab_dark.json \
+    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-preset_dark.json \
+    && wget     -O ${FRONTAIL_BASE}/preset/custom_ALB.json \
+    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB.json \
+    && wget     -O ${FRONTAIL_BASE}/web/assets/styles/custom_ALB_dark.css \
+    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB_dark.css \
+    && wget     -O ${FRONTAIL_BASE}/web/assets/styles/custom_ALB_light.css \
+    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB_light.css\
+    && wget     -O ${FRONTAIL_BASE}/web/index.html \
+    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/index.html \
+    && wget     -O ${FRONTAIL_BASE}/web/assets/styles/bootstrap.min.css \
+    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/bootstrap.min.css \
+    && wget     -O ${FRONTAIL_BASE}/web/assets/styles/openhab.css \
+    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-theme.css \
+    && wget     -O ${FRONTAIL_BASE}/web/assets/styles/openhab_dark.css \
+    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-theme_dark.css \
+    && wget     -O ${FRONTAIL_BASE}/web/assets/app.js \
+    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/app.js
+
+RUN mkdir -p /openhab/userdata
+RUN ln -s /openhab/userdata/logs /var/log/openhab
+
+ENV FRONTAIL_THEME="custom_ALB"
+
+EXPOSE 9001
+CMD frontail \
+    --disable-usage-stats \
+    --ui-highlight \
+    --ui-highlight-preset /usr/local/lib/node_modules/frontail/preset/${FRONTAIL_THEME}.json \
+    --theme ${FRONTAIL_THEME}\
+    -l 2000 \
+    -n 200 \
+    /var/log/openhab/events.log \
+    /var/log/openhab/openhab.log
