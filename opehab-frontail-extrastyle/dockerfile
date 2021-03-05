@@ -16,7 +16,7 @@ RUN FRONTAIL_BASE="/usr/local/lib/node_modules/frontail" \
     && wget     -O ${FRONTAIL_BASE}/preset/custom_ALB.json \
     https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB.json \
     && wget     -O ${FRONTAIL_BASE}/web/assets/styles/custom_ALB_dark.css \
-    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB_dark.css \
+    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB.css \
     && wget     -O ${FRONTAIL_BASE}/web/assets/styles/custom_ALB_light.css \
     https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/custom_ALB_light.css\
     && wget     -O ${FRONTAIL_BASE}/web/index.html \
