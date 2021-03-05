@@ -1,0 +1,430 @@
+@import 'openhab_dark.css';
+
+/* ========== Generic rules ========== */
+body {
+	background-color: #282922;
+}
+.navbar {
+	background-color: #1A180F;
+	box-shadow: none;
+	padding: 10px 0;
+}
+.navbar .navbar-brand,
+.navbar .text-right::before {
+	color: #666;
+}
+.navbar .col-sm-9{
+	overflow: hidden;
+}
+.navbar .navbar-brand::before{
+	font-size: 18px;
+	display: block;
+}
+.navbar .navbar-brand {
+	height: auto;
+	padding: 4px 0 3px 0;
+	font-size: 13px;
+	line-height: 20px;
+	margin-left: 0 !important;
+}
+.navbar .navbar-brand:focus, 
+.navbar .navbar-brand:hover {
+	color: #888;
+}
+.navbar .text-right .btn {
+	background-color: #AAA;
+	margin-left: 3px;
+}
+.navbar .text-right .btn.btn-pause.play {
+	background-color: #D00;
+	animation: blinking 0.5s infinite;
+}
+@keyframes blinking {
+	0%   { background-color: #D00; }
+	100% { background-color: #AAA; }
+}
+.btn.active.focus, 
+.btn.active:focus, 
+.btn.focus, 
+.btn:active.focus, 
+.btn:active:focus, 
+.btn:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+.navbar .text-right {
+	display: inline-block;
+	padding-top: 13px;
+	float: right;
+}
+.navbar .text-right::before {
+	content: "Pause/Play Log";
+}
+.navbar .navbar-form-custom {
+	padding: 5px 0 0 0;
+}
+.form-control {
+	background-color: #EFEFEF;
+	box-shadow: none;
+	color: #333;
+}
+input::placeholder {
+	color: #CCC;
+}
+.form-control:focus {
+	outline: 1;
+}
+.container-fluid {
+	margin: auto 0;
+	padding: 0 15px;
+}
+.log .line {
+	color: #999;
+	font-weight: normal;
+}
+.log .inner-line {
+	font-size: 0.85em;
+	line-height: 1.7em;
+	display: inline-block;
+	padding: 3px 15px;
+}
+
+
+
+/* ========== Styles applied by RegEx ========== */
+
+.commError, 
+.null, 
+.undef {
+	background-color: #FF6464; 
+	color: #FFFFFF; 
+}
+.date {
+	color: #9C80FF;
+}
+.info {
+	color: #83ff00;
+}
+.origin, 
+.itemChangedEvent, 
+.thingChangedEvent, 
+.commandEvent {
+	color: #2FD1E6;
+}
+.keyword {
+	font-weight: bold;
+}
+.keyword.green {
+	color: #9EEF49; 
+}
+.keyword.red {
+	color: #FF3E3E; 
+}
+.highlight {
+	color: #FFF;
+	font-weight: normal;
+	background-color: #FF39AF55;
+	padding: 0px 3px;
+	border-radius: 3px;
+	display: inline-block;
+}
+.afterFrom,
+.afterTo {
+	color: #FFF;
+	font-weight: bold;
+}
+.through,
+.become {
+	color: #999;
+	font-weight: normal;
+}
+
+
+
+/* ========== Lines ========== */
+
+/* .evid (.errorLine + .warnLine) */
+.log .line.evid {
+	padding: 5px 0; 
+	margin: 6px 0 6px 0; 
+	border-radius: 5px;
+}
+.log .line.evid .date, 
+.log .line.evid .origin,
+.log .line.evid .itemChangedEvent, 
+.log .line.evid .thingChangedEvent, 
+.log .line.evid .commandEvent {
+	color: #00000080;
+}
+.log .line.evid .afterFrom,
+.log .line.evid .afterTo {
+	color: #000000;
+	font-weight: bold;
+}
+.log .line.evid .through,
+.log .line.evid .become {
+	color: #000;
+	font-weight: normal;
+}
+.log .line.evid .highlight {
+	background-color: #00000033;
+	color: #FFF;
+}
+
+
+/* .logLine */
+.log .line.logLine {
+	text-align: right; 
+	border-top: 1px solid #555; 
+	color: #999;
+}
+
+
+/* .modelLine */
+.log .line.modelLine {
+	background-color: #035988; 
+	color: #FFF;
+	border-radius: 5px;
+	margin: 5px 0;
+}
+.log .line.modelLine .date {
+	color: #FFFFFFAA;
+}
+.log .line.modelLine .info,
+.log .line.modelLine .green {
+	color: #78e900;
+}
+.log .line.modelLine .highlight {
+	background-color: #ffffff33;
+}
+.log .line.modelLine .through,
+.log .line.modelLine .become,
+.log .line.modelLine .afterFrom,
+.log .line.modelLine .afterTo {
+	color: #FFF;
+}
+
+
+/* .debugLine */
+.log .line.debugLine {
+	background-color: #fbcbfe; 
+	color: #222; 
+	border-radius: 5px;
+	margin: 5px 0;
+}
+.log .line.debugLine .date {
+	color: #845e8b;
+}
+.log .line.debugLine .type {
+	color: #cf1dc2;
+}
+.log .line.debugLine .date, 
+.log .line.debugLine .origin,
+.log .line.debugLine .itemChangedEvent, 
+.log .line.debugLine .thingChangedEvent, 
+.log .line.debugLine .commandEvent {
+	color: #00000080;
+}
+.log .line.debugLine .info,
+.log .line.debugLine .green {
+	color: #019d2b;
+}
+.log .line.debugLine .highlight {
+	background-color: #FFFFFFAA;
+	color: #222;
+}
+.log .line.debugLine .through,
+.log .line.debugLine .become,
+.log .line.debugLine .afterFrom,
+.log .line.debugLine .afterTo {
+	color: #222;
+}
+
+
+/* .errorLine */
+.log .line.errorLine {
+	background-color: #FF3E3E; 
+	color: #FFF; 
+}
+.log .line.evid.errorLine .type {
+	color: #FFF;
+}
+.log .line.evid.errorLine .date, 
+.log .line.evid.errorLine .origin,
+.log .line.evid.errorLine .itemChangedEvent, 
+.log .line.evid.errorLine .thingChangedEvent, 
+.log .line.evid.errorLine .commandEvent {
+	color: #FFFFFFAA;
+}
+.log .line.evid.errorLine .green, 
+.log .line.evid.errorLine .red {
+	color: #FFF;
+}
+.log .line.evid.errorLine .afterFrom,
+.log .line.evid.errorLine .afterTo,
+.log .line.evid.errorLine .through,
+.log .line.evid.errorLine .become {
+	color: #FFF;
+}
+
+
+/* warnLine */
+.log .line.warnLine {
+	background-color: #FAC613; 
+	color: #222;
+}
+.log .line.evid.warnLine .type {
+	color: #222;
+}
+.log .line.evid.warnLine .green {
+	color: #438300;
+}
+.log .line.evid.warnLine .highlight {
+	background-color: #FFFFFFAA;
+	color: #000;
+}
+.log .line.evid.warnLine .through,
+.log .line.evid.warnLine .become,
+.log .line.evid.warnLine .afterFrom,
+.log .line.evid.warnLine .afterTo {
+	color: #000;
+}
+
+
+/* .traceLine */
+.log .line.traceLine {
+	background-color: #444;
+	border-radius: 5px;
+	margin: 5px 0;
+	color: #CCC;
+}
+.log .line.traceLine .type {
+	color: #FFF;
+}
+.log .line.traceLine .highlight {
+	color: #FFF;
+	background-color: #FFFFFF33;
+}
+.log .line.traceLine .date, 
+.log .line.traceLine .origin,
+.log .line.traceLine .itemChangedEvent, 
+.log .line.traceLine .thingChangedEvent, 
+.log .line.traceLine .commandEvent {
+	color: #999;
+}
+.log .line.traceLine .through,
+.log .line.traceLine .become {
+	color: #CCC;
+}
+.log .line.traceLine .afterFrom,
+.log .line.traceLine .afterTo {
+	color: #FFF;
+}
+
+
+
+/* ========== Line selected ========== */
+
+.log .line-selected {
+	background-color: #FFF !important;
+	animation-timing-function: ease-in-out;
+	animation: bgColor 0.1s 2;
+	color: #222 !important;
+}
+@keyframes bgColor {
+	0%   { background-color: #2f2f2f; }
+	100% { background-color: #666; }
+}
+.log .line.line-selected .date {
+	color: #7D219F !important;
+}
+.log .line.line-selected .origin,
+.log .line.line-selected .itemChangedEvent, 
+.log .line.line-selected .thingChangedEvent, 
+.log .line.line-selected .commandEvent {
+	color: #0596DB !important;
+}
+.log .line.line-selected .error {
+	color: #FF3E3E !important;
+}
+.log .line.line-selected .warn {
+	color: #DAA60D !important;
+}
+.log .line.line-selected .debug {
+	color: #f883ff !important;
+}
+.log .line.line-selected .trace {
+	color: #444 !important;
+}
+.log .line.line-selected .info,
+.log .line.line-selected .green {
+	color: #44b109 !important;
+}
+.log .line.line-selected .red {
+	color: #FF3E3E !important; 
+}
+.log .line.line-selected .highlight {
+	background-color: #ff52a8 !important;
+	color: #FFF !important;
+}
+.log .line.line-selected .highlight.commError, 
+.log .line.line-selected .highlight.null, 
+.log .line.line-selected .highlight.undef {
+    background-color: #FF3E3E !important;
+}
+.log .line.line-selected .afterFrom,
+.log .line.line-selected .afterTo {
+	color: #000 !important;
+	font-weight: bold;
+}
+.log .line.line-selected .through,
+.log .line.line-selected .become {
+	color: #222 !important;
+}
+
+
+
+/* ========== Media Queries ========== */
+
+
+
+@media screen and (max-width: 768px) {
+	.navbar .navbar-form-custom {
+		padding: 8px 0 5px;
+	}
+	.container-fluid {
+		padding: 0 10px;
+	}
+	.navbar .text-right::before {
+		content: "Pause";
+	}
+	.log .line {		
+		padding: 3px 0 7px 0;
+		border-top: 1px solid #555;
+	}
+	.log .line.line-selected {		
+		border-top: 1px solid #FFF;
+	}
+	.log .inner-line {
+		padding: 3px 10px;
+	}
+	.log .line.logLine,
+	.log .line.modelLine,
+	.log .line.debugLine,
+	.log .line.traceLine,
+	.log .line.evid,
+	.log .line.evid.line-selected {		
+		border-top: 0;
+	}
+	.log .line.logLine {
+		border-top: 0;
+		padding-bottom: 35px;
+		text-align: center;
+	}
+	.date {
+		display: inline-block;
+	}
+	.origin {
+		display: inline-block;
+	}
+}
