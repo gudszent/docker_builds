@@ -1,11 +1,12 @@
 FROM node:10.16.0-alpine
 
+ARG FRONTAIL_VERSION
 
 LABEL description="openHAB log viewer"
 
 RUN apk add --no-cache wget
 
-RUN npm install frontail@4.9.1 -g --production --unsafe-perm
+RUN npm install frontail@$FRONTAIL_VERSION -g --production --unsafe-perm
 
 RUN FRONTAIL_BASE="/usr/local/lib/node_modules/frontail" \
     && wget     -O ${FRONTAIL_BASE}/preset/openhab.json \
@@ -25,7 +26,8 @@ RUN FRONTAIL_BASE="/usr/local/lib/node_modules/frontail" \
     && wget     -O ${FRONTAIL_BASE}/web/assets/styles/openhab.css \
     https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-theme.css \
     && wget     -O ${FRONTAIL_BASE}/web/assets/styles/openhab_dark.css \
-    https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-theme_dark.css \
+    https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/openhab_dark.css \
+    ##https://raw.githubusercontent.com/openhab/openhabian/openHAB3/includes/frontail/frontail-theme_dark.css \
     && wget     -O ${FRONTAIL_BASE}/web/assets/app.js \
     https://raw.githubusercontent.com/gudszent/docker_builds/master/opehab-frontail-extrastyle/customs/app.js
 
