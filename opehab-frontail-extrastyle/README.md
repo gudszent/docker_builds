@@ -4,7 +4,7 @@
 
 Docker image to view your openHAB logs. Runs frontail to stream logs to the browser. Has the openHAB theme applied to it like in [openhabian](https://www.openhab.org/docs/installation/openhabian.html).
 
-![frontail-openhab](https://user-images.githubusercontent.com/16267532/109402637-a7d80580-7957-11eb-8999-d529c96ec520.png)
+![frontail-openhab](https://community-openhab-org.s3.dualstack.eu-central-1.amazonaws.com/optimized/3X/f/c/fcaebc3ca9cb3f182d8d59ef3aa5f322a6fd9a55_2_690x460.jpeg)
 
 ### Usage
 
