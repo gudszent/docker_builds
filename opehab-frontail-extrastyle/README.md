@@ -1,4 +1,4 @@
-# based on welteki/frontail-openhab docker file (https://raw.githubusercontent.com/welteki/docker_frontail_openhab) !
+# based on welteki/frontail-openhab docker file (https://github.com/welteki/docker_frontail_openhab) !
 
 ## openHAB log viewer
 
@@ -17,7 +17,7 @@ docker run -d \
   --name frontail-openhab \
   -p 9001:9001 \
   -v openhab_userdata:/openhab/userdata:ro \
-  welteki/frontail-openhab:latest
+  gudszent/openhab-frontail:latest
 ```
 
 #### Mounting log files from host directory
@@ -27,13 +27,6 @@ docker run -d \
   --name frontail-openhab \
   -p 9001:9001 \
   -v /opt/openhab/userdata/logs:/var/log/openhab:ro \
-  welteki/frontail-openhab:latest
+  gudszent/openhab-frontail:latest
 ```
 
-#### Enabling dark mode
-
-The dark theme can be enabled by setting the `FRONTAIL_THEME` environment variable. To do this just add `-e FRONTAIL_THEME=openhab_dark` to your docker run arguments.
-
-## License
-
-MIT (c) 2018 Han Verstraete https://github.com/welteki
