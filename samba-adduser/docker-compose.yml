@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  samba:
+    image: elswork/samba
+    environment:
+      TZ: 'Europe/Madrid'
+    networks:
+      - default
+    ports:
+      - "445:445"
+    restart: unless-stopped
+    volumes:
+      - /home/pirate/docker/makefile:/share/folder
+      #- /path/to/be/shared:/share/folder
+    command: '-u "1000:1000:pirate:pirate:put-any-password-here" 
+    # command: '-u "uid:guid:username:groupname:put-any-password-here" 
+
+# networks:
+  # default:
