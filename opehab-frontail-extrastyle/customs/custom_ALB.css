@@ -381,7 +381,10 @@ input::placeholder {
 .log .line.line-selected .become {
 	color: #222 !important;
 }
-
+.log .inner-line {
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+}
 
 
 /* ========== Media Queries ========== */
