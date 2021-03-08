@@ -3,8 +3,6 @@
 CONFIG_FILE="/etc/samba/smb.conf"
 FIRSTTIME=true
 
-EOT
-
   while getopts ":u:s:h" opt; do
     case $opt in
       h)
