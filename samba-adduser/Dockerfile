@@ -9,14 +9,14 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 RUN apk update && apk upgrade && apk add bash samba-common-tools samba tzdata && rm -rf /var/cache/apk/*
 
-COPY entrypoint.sh /entrypoint.sh
+COPY samba-adduser/entrypoint.sh /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
 
 EXPOSE 137/udp 138/udp 139 445
 
 HEALTHCHECK --interval=60s --timeout=15s CMD smbclient -L \\localhost -U % -m SMB3
 
-ENTRYPOINT ["/samba-adduser/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["-h"]
 
 
