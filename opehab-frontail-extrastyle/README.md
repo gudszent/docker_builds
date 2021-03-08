@@ -1,4 +1,4 @@
-# based on welteki/frontail-openhab docker file (https://github.com/welteki/docker_frontail_openhab) and https://community.openhab.org/t/frontail-custom-theme-coloring/116673 !
+# Based on welteki/frontail-openhab docker file (https://github.com/welteki/docker_frontail_openhab) and https://community.openhab.org/t/frontail-custom-theme-coloring/116673 !
 
 ## openHAB log viewer
 
