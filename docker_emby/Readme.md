@@ -5,7 +5,7 @@ amdgpu-pro-20.45-1188099-ubuntu-20.04
 
 ## Docker
 Compatible with docker-compose v2 schemas.
-´´´
+```
 ---
 version: "2.1"
 services:
@@ -31,9 +31,9 @@ services:
       - /dev/video11:/dev/video11 #optional
       - /dev/video12:/dev/video12 #optional
     restart: unless-stopped
-´´´
+```
 docker cli
-´´´
+```
 docker run -d \
   --name=emby \
   -e PUID=1000 \
@@ -52,7 +52,7 @@ docker run -d \
   --device /dev/video12:/dev/video12 `#optional` \
   --restart unless-stopped \
   gudszent/emby_ryzen
-´´´
+```
 
 
 
